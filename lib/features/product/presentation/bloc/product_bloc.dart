@@ -32,6 +32,7 @@ class AddProductBloc extends Bloc<ProductEvent, ProductState> {
       else if (event is EditProductEvent) {
         emit(LoadingProductState());
         final failureOrDoneMessage = await editProduct(event.data);
+        print('failureOrDoneMessage:$failureOrDoneMessage');
         emit(_mapFailureOrPostsToEditStateForGet(failureOrDoneMessage));
 
       }

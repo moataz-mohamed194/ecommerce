@@ -36,19 +36,19 @@ class RowTwoText extends StatelessWidget {
           Container(
               alignment: Alignment.centerRight,
               child:isItTaxes==false&&total==false? Text(
-                "\$ $data",
+                "\$ ${data.toStringAsFixed(3)}",
                 style: TextStyle(
                     color: AppColors.primary,
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ):isItTaxes==true&&total==false?Text(
-                "\$ ${(data*.1)}",
+                "\$ ${(data*.1).toStringAsFixed(3)}",
                 style: TextStyle(
                     color: AppColors.primary,
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ):Text(
-                "\$ ${(data+(data*.1))}",
+                "\$ ${(data+(data*.1)).toStringAsFixed(3)}",
                 style: TextStyle(
                     color: AppColors.primary,
                     fontSize: 16,

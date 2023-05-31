@@ -4,8 +4,8 @@ class ProductData extends Equatable {
   int? id;
   String? title;
   String? price;
-  int? idProduct;
-  int? count;
+  dynamic? idProduct;
+  dynamic? count;
   String? description;
   String? category;
   String? image;

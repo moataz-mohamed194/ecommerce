@@ -6,8 +6,8 @@ class ProductDataModel extends ProductData {
       String? price,
       String? title,
       String? description,
-        int? idProduct,
-        int? count,
+        dynamic? idProduct,
+        dynamic count,
       String? category,
       String? image,
       RatingDataModel? rating})

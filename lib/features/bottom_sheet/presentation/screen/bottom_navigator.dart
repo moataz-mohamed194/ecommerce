@@ -18,41 +18,45 @@ class BottomNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavigatorCubit, int>(builder: (context, state) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('E-commerce'),
-        ),
-        body: Center(
-          child: _widgetOptions.elementAt(state),
-        ),
-        bottomNavigationBar: ClipRRect(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20.0),
-            topRight: Radius.circular(20.0),
+      return SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('E-commerce'),
           ),
-          child: BottomNavigationBar(
-            backgroundColor: AppColors.bgBottomPrimary,
-            type: BottomNavigationBarType.fixed,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.add_shopping_cart),
-                label: 'Cart ',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile ',
-              ),
-            ],
-            currentIndex: state,
-            unselectedItemColor: Colors.white,
-            selectedItemColor: AppColors.primary.withOpacity(.9),
-            onTap: (index) {
-              context.read<BottomNavigatorCubit>().changeIndex(index);
-            },
+          body: Center(
+            child: _widgetOptions.elementAt(state),
+          ),
+          bottomNavigationBar: ClipRRect(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20.0),
+              topRight: Radius.circular(20.0),
+            ),
+
+            child: BottomNavigationBar(
+
+              backgroundColor: AppColors.bgBottomPrimary.withOpacity(.9),
+              // type: BottomNavigationBarType.shifting,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.add_shopping_cart),
+                  label: 'Cart ',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: 'Profile ',
+                ),
+              ],
+              currentIndex: state,
+              unselectedItemColor: Colors.white,
+              selectedItemColor: AppColors.primary.withOpacity(.6),
+              onTap: (index) {
+                context.read<BottomNavigatorCubit>().changeIndex(index);
+              },
+            ),
           ),
         ),
       );

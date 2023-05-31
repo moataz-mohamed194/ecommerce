@@ -36,9 +36,9 @@ displayOrder(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.network(
                 image,
-                height: 250.w,
-                width: 200.w,
-                fit: BoxFit.fill,
+                height: 50.h,
+                width: 150.w,
+                fit: BoxFit.fitHeight,
               ),
             ),
             Expanded(

@@ -41,6 +41,7 @@ return BlocProvider<HomeBloc>(
                         icon: Icon(Icons.filter_list_outlined))
                   // title: 'Username',
                 ),
+                SizedBox(height: 30,),
 
                 GridView.count(
                     shrinkWrap: true,
@@ -68,7 +69,7 @@ return BlocProvider<HomeBloc>(
         } else if (stateHome is LoadedHomeSearchState) {
           return Container(
             margin: const EdgeInsets.symmetric(horizontal: 5),
-            child: ListView(
+            child: Column(
               children: [
                 textFormFieldWithTextWidget(
                 hint: 'Search',
@@ -79,8 +80,8 @@ return BlocProvider<HomeBloc>(
                           categoryList: stateHome.dataCategory);
                     },
                     icon: Icon(Icons.filter_list_outlined))
-              // title: 'Username',
             ),
+                SizedBox(height: 30,),
                 GridView.count(
                     shrinkWrap: true,
                     crossAxisCount: 2,

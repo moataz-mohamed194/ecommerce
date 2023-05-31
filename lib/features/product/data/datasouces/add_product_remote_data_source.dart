@@ -54,10 +54,11 @@ class AddProductRemoteDataSourceImple extends AddProductRemoteDataSource {
 
   @override
   Future<ProductDataModel> editProductAccount(ProductData data) async {
-    try {
+    // try {
+print('editProductAccount--${EndPoints.editOneProductsUrl(data.id!)}');
 
       final response =
-          await client.post(Uri.parse(EndPoints.editOneProductsUrl(data.id!)), headers: {
+          await client.put(Uri.parse(EndPoints.editOneProductsUrl(data.id!)), headers: {
         'Accept': 'application/json',
       }, body: {
         "title": data.title,
@@ -66,6 +67,8 @@ class AddProductRemoteDataSourceImple extends AddProductRemoteDataSource {
         'category': data.category,
         'image': data.image
       });
+      print(response.statusCode);
+      print(response.body);
       if (response.statusCode == 200) {
         final ProductDataModel dataModels =
         ProductDataModel.fromJson(json.decode(response.body));
@@ -75,12 +78,13 @@ class AddProductRemoteDataSourceImple extends AddProductRemoteDataSource {
       } else {
         throw OfflineException();
       }
-    } catch (e) {
-      if (e is CheckDataException) {
-        throw CheckDataException();
-      }
-      throw OfflineException();
-    }
+    // } catch (e) {
+    //   print(e);
+    //   if (e is CheckDataException) {
+    //     throw CheckDataException();
+    //   }
+    //   throw OfflineException();
+    // }
   }
   @override
   Future<List<ProductDataModel>> getProductToCartAccount() async {

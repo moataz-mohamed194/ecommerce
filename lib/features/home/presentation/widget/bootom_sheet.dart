@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/widget/button_widget.dart';
 import '../bloc/home_bloc.dart';
 import '../cubit/check_box_cubit.dart';
 import '../cubit/drop_down_bloc.dart';
@@ -12,6 +14,7 @@ bottomSheet({context0, required List categoryList})=>showModalBottomSheet<void>(
     return Container(
       alignment: Alignment.center,
       color: Colors.white,
+      height: 300,
       child: Center(
         child: Column(
           mainAxisAlignment:
@@ -79,28 +82,9 @@ bottomSheet({context0, required List categoryList})=>showModalBottomSheet<void>(
 
                 children: [
                   Expanded(
-                    child: ElevatedButton(
-                      child:
-                      const Text('Clear'),
-                      onPressed: (){
-
-
-                        BlocProvider.of<CheckBoxCubit>(context0).clearCheck();
-                        BlocProvider.of<DropDownBloc>(context0).clearValues();
-                        BlocProvider.of<HomeBloc>(context0)
-                            .add(GetHomeEvent());
-                        Navigator.pop(context0);
-                      },
-                    ),
-                  ),
-                  SizedBox(width: 10,),
-                  Expanded(
-                    child: ElevatedButton(
-                      child:
-                      const Text('Search'),
-                      onPressed: (){
-
-
+                    child: ButtonWidget(
+                      text: 'Search',
+                      action: () {
                         BlocProvider.of<HomeBloc>(context0)
                             .add(GetSearchProductEvent(sort: context
                             .read<CheckBoxCubit>().state, category: context
@@ -108,8 +92,66 @@ bottomSheet({context0, required List categoryList})=>showModalBottomSheet<void>(
                             .read<DropDownBloc>().selectedValue));
                         Navigator.pop(context0);
                       },
+                      width: double.infinity,
+                      backgroundColor: AppColors.primary,
+                      textColor: Colors.white,
+                      boarderColor: Colors.transparent,
+                      marginHeight: 10,
+                      marginWidth: 0,
                     ),
                   ),
+                  SizedBox(width: 10,),
+
+                  Expanded(
+                    child: ButtonWidget(
+                      text: 'Clear',
+                      action: () {
+                        BlocProvider.of<CheckBoxCubit>(context0).clearCheck();
+                        BlocProvider.of<DropDownBloc>(context0).clearValues();
+                        BlocProvider.of<HomeBloc>(context0)
+                            .add(GetHomeEvent());
+                        Navigator.pop(context0);
+                      },
+                      width: double.infinity,
+                      backgroundColor: Colors.white,
+                      textColor: AppColors.primary,
+                      boarderColor: AppColors.primary,
+                      marginHeight: 10,
+                      marginWidth: 0,
+                    ),
+                  )
+                  // Expanded(
+                  //   child: ElevatedButton(
+                  //     child:
+                  //     const Text('Clear'),
+                  //     onPressed: (){
+                  //
+                  //
+                  //       BlocProvider.of<CheckBoxCubit>(context0).clearCheck();
+                  //       BlocProvider.of<DropDownBloc>(context0).clearValues();
+                  //       BlocProvider.of<HomeBloc>(context0)
+                  //           .add(GetHomeEvent());
+                  //       Navigator.pop(context0);
+                  //     },
+                  //   ),
+                  // ),
+                  // SizedBox(width: 10,),
+                  // Expanded(
+                  //   child: ElevatedButton(
+                  //     child:
+                  //     const Text('Search'),
+                  //     onPressed: (){
+                  //
+                  //
+                  //       BlocProvider.of<HomeBloc>(context0)
+                  //           .add(GetSearchProductEvent(sort: context
+                  //           .read<CheckBoxCubit>().state, category: context
+                  //           .read<DropDownBloc>().selectedValueCategory,limit:  context
+                  //           .read<DropDownBloc>().selectedValue));
+                  //       Navigator.pop(context0);
+                  //     },
+                  //   ),
+                  // ),
                 ],
               ),
             )

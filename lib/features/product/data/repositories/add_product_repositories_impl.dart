@@ -50,7 +50,8 @@ class ProductRepositoriesImpl implements AddProductRepository {
     if (await networkInfo.isConnected) {
       try {
         final currentAccount =
-            await remoteDataSource.addProductAccount(dataModel);
+            await remoteDataSource.editProductAccount(dataModel);
+        print('currentAccount:$currentAccount');
         return Right(currentAccount);
       } on OfflineException {
         return Left(OfflineFailures());

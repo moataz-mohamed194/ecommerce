@@ -23,16 +23,17 @@ class AddProduct extends StatelessWidget {
   String? description;
   String? image;
   String? category;
+  int? id;
   AddProduct(
-      {this.title, this.price, this.description, this.category, this.isItEdit, this.image});
+      {this.title,this.id, this.price, this.description, this.category, this.isItEdit, this.image});
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Add Product',
+        title:  Text(
+          isItEdit==true?'Edit Product':'Add Product',
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.transparent,
@@ -119,7 +120,7 @@ class AddProduct extends StatelessWidget {
                   height: 20,
                 ),
                 ButtonWidget(
-                        text: 'Choose file',
+                        text: 'Upload file',
                         action: () async {
                           FilePickerResult? result =
                               await FilePicker.platform.pickFiles(
@@ -141,28 +142,6 @@ class AddProduct extends StatelessWidget {
                         marginHeight: 15,
                         marginWidth: 0,
                       ),
-                // ButtonWidget(
-                //   text: 'Take pic',
-                //   action: () async{
-                //     FilePickerResult? result = await FilePicker.platform.pickFiles(
-                //       type: FileType.custom,
-                //       allowedExtensions: ['jpg', 'png'],
-                //     );
-                //
-                //     if (result != null) {
-                //       File file = File(result.files.single.path!);
-                //       print(file.path);
-                //     } else {
-                //       // User canceled the picker
-                //     }
-                //   },
-                //   width: MediaQuery.of(context).size.width - 40,
-                //   backgroundColor: Colors.white,
-                //   textColor: AppColors.primary,
-                //   boarderColor: Colors.grey.shade500,
-                //   marginHeight: 15,
-                //   marginWidth: 0,
-                // ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -185,6 +164,7 @@ class AddProduct extends StatelessWidget {
                                       description: description,
                                       price: price,
                                       image: image,
+                                      id: id,
                                       category: category)));
                         } else {
                           if (file == null) {

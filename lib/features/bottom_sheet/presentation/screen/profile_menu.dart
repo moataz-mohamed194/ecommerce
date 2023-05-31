@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../product/presentation/screen/add_product.dart';
 import '../../../profile/presentation/screens/get_profile.dart';
+import '../../../profile/presentation/widget/profile_item.dart';
 
 class ProfileMenu extends StatelessWidget {
   @override
@@ -17,36 +18,30 @@ class ProfileMenu extends StatelessWidget {
             shape: BoxShape.circle,
             image: DecorationImage(
                 image: AssetImage('assets/images/person.jpeg'),
-                fit: BoxFit.contain
-            ),
+                fit: BoxFit.contain),
           ),
         ),
-        Card(
-          child: ListTile(
-            leading: Icon(Icons.add),
-            title: const Text('Profile'),
-            tileColor: Colors.white,
+        SizedBox(
+          height: 30,
+        ),
+        profileItem(
+            context: context,
+            title: 'Profile',
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => GetProfile()),
               );
-            },
-          ),
-        ),
-        Card(
-          child: ListTile(
-            leading: Icon(Icons.add),
-            title: const Text('Add New Product'),
-            tileColor: Colors.white,
+            }),
+        profileItem(
+            title: 'Add New Product',
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => AddProduct()),
               );
             },
-          ),
-        ),
+            context: context),
       ],
     );
   }

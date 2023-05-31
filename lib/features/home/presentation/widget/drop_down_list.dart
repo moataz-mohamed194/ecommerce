@@ -23,7 +23,7 @@ class DropDownList extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Padding(
+          value==null?Container():Padding(
             padding: EdgeInsets.only(left: 18.r, top: 8.r, bottom: 8.r),
             child: Text(
               label.toString(),
