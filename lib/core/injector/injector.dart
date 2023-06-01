@@ -1,4 +1,3 @@
-
 import 'package:ecommerce/core/bloc/eyes_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -31,6 +30,7 @@ import '../../features/product/domain/usecases/edit_product_data.dart';
 import '../../features/product/domain/usecases/get_product_to_cart_data.dart';
 import '../../features/product/domain/usecases/update_product_from_cart_data.dart';
 import '../../features/product/presentation/bloc/product_bloc.dart';
+import '../../features/product/presentation/cubit/choose_file_cubit.dart';
 import '../../features/profile/data/datasouces/get_Profile_remote_data_source.dart';
 import '../../features/profile/data/repositories/get_profile_repositories_impl.dart';
 import '../../features/profile/domain/repositories/get_profile_repository.dart';

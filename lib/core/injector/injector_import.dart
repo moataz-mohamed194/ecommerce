@@ -6,6 +6,7 @@ Future<void> init() async {
   sl.registerFactory(() => BottomNavigatorCubit());
   sl.registerFactory(() => CheckBoxCubit());
   sl.registerFactory(() => DropDownBloc());
+  sl.registerFactory(() => ChooseFileCubit());
 
 
   //Bloc

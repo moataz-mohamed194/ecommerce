@@ -1,14 +1,13 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:file_picker/file_picker.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/widget/button_widget.dart';
 import '../../../../core/widget/scaffold_message.dart';
 import '../../../../core/widget/text_form_with_title_widget.dart';
 import '../../domain/entities/product.dart';
 import '../bloc/product_bloc.dart';
+import '../cubit/choose_file_cubit.dart';
+import '../widget/choose_type.dart';
 
 class AddProduct extends StatelessWidget {
   GlobalKey<FormState> signUpFormKey = GlobalKey<FormState>();
@@ -16,7 +15,6 @@ class AddProduct extends StatelessWidget {
   TextEditingController priceController = TextEditingController();
   TextEditingController desController = TextEditingController();
   TextEditingController categoryController = TextEditingController();
-  File? file;
   bool? isItEdit;
   String? title;
   String? price;
@@ -122,18 +120,7 @@ class AddProduct extends StatelessWidget {
                 ButtonWidget(
                         text: 'Upload file',
                         action: () async {
-                          FilePickerResult? result =
-                              await FilePicker.platform.pickFiles(
-                            type: FileType.custom,
-                            allowedExtensions: ['jpg', 'png'],
-                          );
-
-                          if (result != null) {
-                            file = File(result.files.single.path!);
-                            image = file!.path;
-                          } else {
-                            // User canceled the picker
-                          }
+                          chooseType(context: context);
                         },
                         width: MediaQuery.of(context).size.width - 40,
                         backgroundColor: Colors.white,
@@ -167,7 +154,8 @@ class AddProduct extends StatelessWidget {
                                       id: id,
                                       category: category)));
                         } else {
-                          if (file == null) {
+                          print('file:${BlocProvider.of<ChooseFileCubit>(context).state}');
+                          if (BlocProvider.of<ChooseFileCubit>(context).state == null) {
                             scaffoldMessage(
                                 context: context,
                                 message: 'add file',
@@ -180,7 +168,7 @@ class AddProduct extends StatelessWidget {
                                         title: titleController.text,
                                         description: desController.text,
                                         price: priceController.text.toString(),
-                                        image: file!.path,
+                                        image: BlocProvider.of<ChooseFileCubit>(context).state,
                                         category: categoryController.text)));
                           }
                         }
@@ -197,6 +185,7 @@ class AddProduct extends StatelessWidget {
                   if (state is MessageProductAccountState) {
                     scaffoldMessage(
                         context: context, message: 'Added', isItAlert: false);
+                    BlocProvider.of<ChooseFileCubit>(context).restart();
                     Navigator.pop(context);
                   } else if (state is ErrorProductState) {
                     scaffoldMessage(
