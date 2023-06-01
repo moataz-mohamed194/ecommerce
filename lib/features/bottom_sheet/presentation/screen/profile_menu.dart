@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../login/presentation/screen/login.dart';
 import '../../../product/presentation/screen/add_product.dart';
 import '../../../profile/presentation/screens/get_profile.dart';
 import '../../../profile/presentation/widget/profile_item.dart';
@@ -39,6 +40,15 @@ class ProfileMenu extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => AddProduct()),
+              );
+            },
+            context: context),
+        profileItem(
+            title: 'Logout',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Login()),
               );
             },
             context: context),
