@@ -4,7 +4,7 @@ class EndPoints {
   static const String signUpUrl = '${baseUrl}users';
   static const String getAllProductsUrl = '${baseUrl}products';
   static const String getAllCategoryUrl = '${baseUrl}products/categories';
-  static const String getAllProductSearchUrl = '${baseUrl}products/categories';
+  static const String getAllProductSearchUrl = '${baseUrl}products/category';
 
   static String getOneProduct(int id) {
     return "$getAllProductsUrl/$id";

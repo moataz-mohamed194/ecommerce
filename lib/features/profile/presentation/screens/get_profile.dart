@@ -21,68 +21,119 @@ class GetProfile extends StatelessWidget {
       ),
       body: SingleChildScrollView(
           child: Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            child: Center(
-              child: BlocProvider<AddProfileBloc>(
-                  create: (context) =>
-                      di.sl<AddProfileBloc>()..add(GetProfileEvent(id: 1)),
-                  child: BlocBuilder<AddProfileBloc, ProfileState>(
-                      builder: (context, state) {
-                    if (state is MessageProfileAccountState) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+        // alignment: Alignment.center,
+        // margin: const EdgeInsets.symmetric(horizontal: 20),
+        child: BlocProvider<AddProfileBloc>(
+            create: (context) =>
+                di.sl<AddProfileBloc>()..add(GetProfileEvent(id: 1)),
+            child: BlocBuilder<AddProfileBloc, ProfileState>(
+                builder: (context, state) {
+              if (state is MessageProfileAccountState) {
+                return Container(
+                  // width: MediaQuery.of(context).size.width,
+
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+
+                        child: Container(
+                          alignment: Alignment.center,
+                          margin: const EdgeInsets.all(20),
+                          width: 100,
+                          height: 100,
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                image: AssetImage('assets/images/person.jpeg'),
+                                fit: BoxFit.contain),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          const Text(
+                            'Full name',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
                           Container(
-                            margin: EdgeInsets.all(20),
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image: AssetImage('assets/images/person.jpeg'),
-                                  fit: BoxFit.contain),
+                            margin: EdgeInsets.only(left: 10),
+
+                            child: Text(
+                              "${state.data.names!.firstName} ${state.data.names!.lastName}",
+                              style: TextStyle(color: Colors.grey.shade500),
                             ),
                           ),
-                          SizedBox(height: 70,),
-                          Row(
-                            children: [
-                              Expanded(child: Text('Full name', style: TextStyle(fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),)),
-                              Expanded(child: Text("${state.data.names!.firstName} ${state.data.names!.lastName}")),
-                            ],
+                          const Text(
+                            'Email',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
                           ),
-                          Row(
-                            children: [
-                              Expanded(child: Text('Email', style: TextStyle(fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),)),
-                              Expanded(child: Text("${state.data.email}")),
-                            ],
+                          Container(
+                            margin: EdgeInsets.only(left: 10),
+                            child: Text(
+                              "${state.data.email} ",
+                              style: TextStyle(color: Colors.grey.shade500),
+                            ),
                           ),
-                          Row(
-                            children: [
-                              Expanded(child: Text('User name', style: TextStyle(fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),)),
-                              Expanded(child: Text("${state.data.username}")),
-                            ],
+                          const Text(
+                            'User name',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
                           ),
-                          Row(
-                            children: [
-                              Expanded(child: Text('Phone', style: TextStyle(fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),)),
-                              Expanded(child: Text("${state.data.phone}")),
-                            ],
+                          Container(
+                            margin: EdgeInsets.only(left: 10),
+
+                            child: Text(
+                              "${state.data.username}",
+                              style: TextStyle(color: Colors.grey.shade500),
+                            ),
+                          ),
+                          const Text(
+                            'Phone',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(left: 10),
+                            child: Text(
+                              "${state.data.phone}",
+                              style: TextStyle(color: Colors.grey.shade500),
+                            ),
                           ),
                         ],
-                      );
-                    } else if (state is ErrorProfileState) {
-                      return Text(state.message);
-                    } else {
-                      return CircularProgressIndicator(
-                        color: AppColors.primary,
-                      );
-                    }
-                  })),
-            ),
-          )),
+                      ),
+                    ],
+                  ),
+                );
+              } else if (state is ErrorProfileState) {
+                return Text(state.message);
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.primary,
+                  ),
+                );
+              }
+            })),
+      )),
     );
   }
 }

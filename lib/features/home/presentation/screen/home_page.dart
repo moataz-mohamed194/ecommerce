@@ -66,7 +66,7 @@ return BlocProvider<HomeBloc>(
         } else if (stateHome is LoadedHomeSearchState) {
           return Container(
             margin: const EdgeInsets.symmetric(horizontal: 5),
-            child: Column(
+            child: ListView(
               children: [
                 textFormFieldWithTextWidget(
                 hint: 'Search',

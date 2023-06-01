@@ -127,6 +127,7 @@ class ProductRemoteDataSourceImple extends ProductRemoteDataSource {
 
         }
       }
+      print(link);
       final response = await client.get(Uri.parse(link));
       if (response.statusCode == 200) {
         final List<ProductDataModel> dataModels = json

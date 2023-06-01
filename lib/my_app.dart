@@ -17,15 +17,13 @@ import 'features/profile/presentation/bloc/profile_bloc.dart';
 import 'features/sign_up/presentation/bloc/sign_up_bloc.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  final bool loggedIn;
+  const MyApp({Key? key, required this.loggedIn}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return MultiBlocProvider(
       providers: [
-
         BlocProvider(create: (_) => di.sl<ChooseFileCubit>()),
         BlocProvider(create: (_) => di.sl<HomeBloc>()),
         BlocProvider(create: (_) => di.sl<AddProfileBloc>()),
@@ -36,7 +34,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => di.sl<EyesCubit>()),
         BlocProvider(create: (_) => di.sl<CheckBoxCubit>()),
         BlocProvider(create: (_) => di.sl<DropDownBloc>()),
-
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -45,12 +42,13 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: ScreenUtilInit(designSize: const Size(1000, 690),
+        home: ScreenUtilInit(
+            designSize: const Size(1000, 690),
             minTextAdapt: true,
             splitScreenMode: true,
-            builder: (context, widget) =>  Login()),
+            builder: (context, widget) =>
+                loggedIn == true ? BottomNavigator() : Login()),
       ),
     );
   }
 }
-

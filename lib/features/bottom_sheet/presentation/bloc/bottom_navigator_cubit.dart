@@ -6,4 +6,8 @@ class BottomNavigatorCubit extends Cubit<int> {
   void changeIndex(int index) {
     emit(index);
   }
+
+  void restart() {
+    emit(0);
+  }
 }

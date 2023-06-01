@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../login/presentation/screen/login.dart';
 import '../../../product/presentation/screen/add_product.dart';
 import '../../../profile/presentation/screens/get_profile.dart';
 import '../../../profile/presentation/widget/profile_item.dart';
+import '../bloc/bottom_navigator_cubit.dart';
 
 class ProfileMenu extends StatelessWidget {
   @override
@@ -45,8 +48,11 @@ class ProfileMenu extends StatelessWidget {
             context: context),
         profileItem(
             title: 'Logout',
-            onTap: () {
-              Navigator.push(
+            onTap: () async {
+              final SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool('login', false);
+              context.read<BottomNavigatorCubit>().restart();
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => Login()),
               );

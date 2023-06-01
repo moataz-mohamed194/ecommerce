@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/api/end_points.dart';
 import '../../../../core/error/exception.dart';
@@ -26,6 +27,8 @@ class LoginRemoteDataSourceImple extends LoginRemoteDataSource {
       if (response.statusCode == 200) {
         final LoginDataModel dataModels =
             LoginDataModel.fromJson(json.decode(response.body));
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setBool('login', true);
         return dataModels;
       } else if (response.statusCode == 401) {
         throw CheckDataException();
