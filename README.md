@@ -4,15 +4,14 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. after download app 
+2. run flutter pub get in terminal to Install dependencies
+3. Connect your device or start an emulator.
+4. flutter run to run app.
+5. run flutter build apk to get the apk for android devices. 
+6. run flutter build apk to get the apk for android devices.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Note 
+to login anyone can use username:mor_2314 and password 83r5^_
 
 [Link of APK](https://drive.google.com/file/d/1og7Eb9XmWSuhK_JCPr4R1c17LEKWaV-J/view?usp=share_link)
