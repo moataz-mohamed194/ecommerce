@@ -26,7 +26,6 @@ class CardOfProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return InkWell(
       onTap: (){
         Navigator.push(
@@ -46,8 +45,6 @@ class CardOfProduct extends StatelessWidget {
               color: Colors.grey.shade100,
               width: 1,
             )),
-        // width: MediaQuery.of(context).size.width/3,
-        // height: 300.h,
         child: Column(
           children: [
             Image.network(

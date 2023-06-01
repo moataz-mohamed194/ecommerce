@@ -29,7 +29,6 @@ class DropDownList extends StatelessWidget {
               label.toString(),
               style: TextStyle(
                   fontSize: 15,
-                  // color: AppColors.textGreyColor,
                   fontWeight: FontWeight.normal),
             ),
           ),

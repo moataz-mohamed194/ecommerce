@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/injector/injector.dart' as di;
 
 import 'features/bottom_sheet/presentation/bloc/bottom_navigator_cubit.dart';
+import 'features/bottom_sheet/presentation/screen/bottom_navigator.dart';
 import 'features/home/presentation/bloc/home_bloc.dart';
 import 'features/home/presentation/cubit/check_box_cubit.dart';
 import 'features/home/presentation/cubit/drop_down_bloc.dart';

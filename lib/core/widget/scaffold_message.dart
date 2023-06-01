@@ -13,6 +13,3 @@ scaffoldMessage(
   ));
 }
 
-// void scaffoldMessage(String message) {
-//   _scaffoldKey.currentState!.showSnackBar(SnackBar(content: Text(message),));
-// }

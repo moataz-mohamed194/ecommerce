@@ -39,16 +39,13 @@ class GetCartData extends StatelessWidget {
                                       name: state.data[index].title!,
                                       id: state.data[index].id!,
                                       image: state.data[index].image!,
-                                      count: state.data[index].count!>isChecked?state.data[index].count!:isChecked,
+                                      count:BlocProvider.of<CounterOfItemsOfOrderCubit>(context1).isStartChange==true?isChecked: state.data[index].count,//!=isChecked?isChecked:state.data[index].count!,
                                         context: context,
                                         context1: context1
                                     );
                                   })))),
                     ),
                   ),
-                  // SizedBox(
-                  //   height: 30,
-                  // ),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 10),
                     child: ButtonWidget(

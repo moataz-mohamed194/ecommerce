@@ -89,7 +89,6 @@ class OneProduct extends StatelessWidget {
                       ],
                     ),
                     body: Container(
-                      // height: MediaQuery.of(context),
                       alignment: Alignment.topLeft,
                       margin: const EdgeInsets.symmetric(horizontal: 10),
                       child: ListView(
@@ -106,7 +105,6 @@ class OneProduct extends StatelessWidget {
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
-                            // textAlign: TextAlign.center,
                           ),
                           SizedBox(height: 20.h,),
                           Rate(
@@ -123,7 +121,6 @@ class OneProduct extends StatelessWidget {
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
-                            // textAlign: TextAlign.center,
                           ),
                           SizedBox(height: 50.h,),
                           ButtonWidget(
@@ -139,16 +136,6 @@ class OneProduct extends StatelessWidget {
                             marginHeight: 10,
                             marginWidth: 0,
                           ),
-                          // Row(
-                          //   children: [
-                          //     Expanded(
-                          //       child:
-                          //     ),
-                          //     Expanded(
-                          //       child: ,
-                          //     )
-                          //   ],
-                          // )
                         ],
                       ),
                     ));

@@ -25,7 +25,6 @@ class RowTwoText extends StatelessWidget {
 
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             text,

@@ -26,7 +26,6 @@ class AddProduct extends StatelessWidget {
       {this.title,this.id, this.price, this.description, this.category, this.isItEdit, this.image});
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,

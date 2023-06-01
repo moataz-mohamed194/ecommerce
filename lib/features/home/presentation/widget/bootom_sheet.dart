@@ -23,7 +23,6 @@ bottomSheet({context0, required List categoryList})=>showModalBottomSheet<void>(
             BlocBuilder<CheckBoxCubit, bool>(
                 builder: (context, state) {
                   return CheckboxListTile(
-                    //checkbox positioned at left
                     value: state,
                     controlAffinity:
                     ListTileControlAffinity.leading,
@@ -120,38 +119,6 @@ bottomSheet({context0, required List categoryList})=>showModalBottomSheet<void>(
                       marginWidth: 0,
                     ),
                   )
-                  // Expanded(
-                  //   child: ElevatedButton(
-                  //     child:
-                  //     const Text('Clear'),
-                  //     onPressed: (){
-                  //
-                  //
-                  //       BlocProvider.of<CheckBoxCubit>(context0).clearCheck();
-                  //       BlocProvider.of<DropDownBloc>(context0).clearValues();
-                  //       BlocProvider.of<HomeBloc>(context0)
-                  //           .add(GetHomeEvent());
-                  //       Navigator.pop(context0);
-                  //     },
-                  //   ),
-                  // ),
-                  // SizedBox(width: 10,),
-                  // Expanded(
-                  //   child: ElevatedButton(
-                  //     child:
-                  //     const Text('Search'),
-                  //     onPressed: (){
-                  //
-                  //
-                  //       BlocProvider.of<HomeBloc>(context0)
-                  //           .add(GetSearchProductEvent(sort: context
-                  //           .read<CheckBoxCubit>().state, category: context
-                  //           .read<DropDownBloc>().selectedValueCategory,limit:  context
-                  //           .read<DropDownBloc>().selectedValue));
-                  //       Navigator.pop(context0);
-                  //     },
-                  //   ),
-                  // ),
                 ],
               ),
             )

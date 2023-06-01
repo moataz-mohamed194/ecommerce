@@ -8,8 +8,6 @@ import 'my_app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // sqfliteFfiInit();
-  // databaseFactory = databaseFactoryFfi;
   SqlTables().createTables();
   await di.init();
 

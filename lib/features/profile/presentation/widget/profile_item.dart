@@ -32,9 +32,6 @@ profileItem(
               ],
             ),
           ),
-          // SizedBox(
-          //   height: 20,
-          // ),
           Container(
             height: 1,
             width: MediaQuery.of(context).size.width,

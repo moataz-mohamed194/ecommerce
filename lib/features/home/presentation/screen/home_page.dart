@@ -26,8 +26,6 @@ return BlocProvider<HomeBloc>(
         if (stateHome is LoadedHomeState) {
           return Container(
             margin: const EdgeInsets.symmetric(horizontal: 5),
-            // height: MediaQuery.of(context).,
-
             child: ListView(
               children: [
                 textFormFieldWithTextWidget(
@@ -39,7 +37,6 @@ return BlocProvider<HomeBloc>(
                               categoryList: stateHome.dataCategory);
                         },
                         icon: Icon(Icons.filter_list_outlined))
-                  // title: 'Username',
                 ),
                 SizedBox(height: 30,),
 

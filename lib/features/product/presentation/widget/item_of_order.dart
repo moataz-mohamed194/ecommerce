@@ -28,7 +28,6 @@ required BuildContext context1,
                 offset: Offset(0.0, 0.75))
           ],
         ),
-        // width: MediaQuery.of(context).size.width,
 
         margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10.0),
@@ -43,9 +42,6 @@ required BuildContext context1,
                 fit: BoxFit.fitHeight,
               ),
             ),
-            // SizedBox(
-            //   width: 5.w,
-            // ),
             Expanded(
               child: Container(
                 margin: const EdgeInsets.only(left: 10),
@@ -63,9 +59,6 @@ required BuildContext context1,
                             flex: 1,
                             child: TextButton(
                                 onPressed: () {
-                                  // context
-                                  //     .read<AddProductBloc>()
-                                  //     .deleteProduct(id);
                                   BlocProvider.of<AddProductBloc>(context).add(DeleteProductCartEvent(id:id));//.deleteProduct(id);
 
                                 },
@@ -144,4 +137,3 @@ required BuildContext context1,
     ],
   );
 }
-// }

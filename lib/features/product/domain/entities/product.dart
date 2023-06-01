@@ -33,6 +33,5 @@ class RatingData extends Equatable {
   RatingData({this.rate, this.count});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [rate, count];
 }

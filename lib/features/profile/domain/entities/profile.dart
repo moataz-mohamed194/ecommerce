@@ -28,7 +28,6 @@ class NameData extends Equatable {
   NameData({this.firstName, this.lastName});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [firstName, lastName];
 }
 
@@ -41,7 +40,6 @@ class AddressData extends Equatable {
   AddressData({this.geolocation, this.zipcode, this.city, this.street, this.number});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [geolocation, zipcode, city, street, number];
 }
 
@@ -51,7 +49,6 @@ class GeolocationData extends Equatable{
   GeolocationData({this.lat, this.long});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [lat, long];
 
 }
